@@ -4,9 +4,14 @@ variable "destroyable_postgres" {
   default = false
 }
 
+
+output "creds" {
+  value = module.postgresql.creds
+}
+
 module "postgresql" {
-  source = "git::https://github.com/GaloyMoney/galoy-infra.git//modules/postgresql/gcp?ref=1eb536b"
-  # source = "../../../modules/postgresql/gcp"
+  # source = "git::https://github.com/GaloyMoney/galoy-infra.git//modules/postgresql/gcp?ref=1eb536b"
+  source = "../../../modules/postgresql/gcp"
 
   instance_name          = "${var.name_prefix}-pg"
   vpc_name               = "${var.name_prefix}-vpc"

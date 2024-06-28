@@ -21,6 +21,10 @@ output "creds" {
   sensitive = true
 }
 
+output "instance_creds" {
+  
+}
+
 output "replicator" {
   value = local.replication ? {
     for db in local.databases : db => {
